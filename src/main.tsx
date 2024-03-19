@@ -7,17 +7,14 @@ import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import App from './App.tsx'
-import { CartContextProvider } from './context/cart.context.tsx'
 import theme from './theme/theme.ts'
 
 const router = createBrowserRouter([
   {
-    path: '/landing-page',
+    path: '/',
     element: (
       <AppContextProvider>
-        <CartContextProvider>
-          <App />
-        </CartContextProvider>
+        <App />
       </AppContextProvider>
     ),
   },
