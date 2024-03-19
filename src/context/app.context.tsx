@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import useFile from 'hooks/useFile'
 import {
   createContext,
   Dispatch,
@@ -6,19 +8,24 @@ import {
   useState,
 } from 'react'
 
-export type DrawerType = 'cart' | 'menu'
+export type TabTypes = 'details' | 'documents'
 
 export interface AppContextProps {
-  activeDrawer?: DrawerType
-  setActiveDrawer: Dispatch<SetStateAction<DrawerType | undefined>>
+  activeTab?: TabTypes
+  setactiveTab: Dispatch<SetStateAction<TabTypes | undefined>>
+  files?: any
+  addToFiles: Dispatch<SetStateAction<any>>
 }
 
 const useAppActions = () => {
-  const [activeDrawer, setActiveDrawer] = useState<DrawerType | undefined>()
+  const [activeTab, setactiveTab] = useState<TabTypes | undefined>('details')
+  const { addToFiles, files } = useFile()
 
   return {
-    activeDrawer,
-    setActiveDrawer,
+    activeTab,
+    addToFiles,
+    files,
+    setactiveTab,
   }
 }
 
