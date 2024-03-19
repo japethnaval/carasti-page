@@ -11,7 +11,7 @@ import theme from './theme/theme.ts'
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: '/carasti-page',
     element: (
       <AppContextProvider>
         <App />
