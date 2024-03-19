@@ -1,8 +1,8 @@
 {
-  "name": "landing-page",
+  "name": "carasti-page",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://japethnaval.github.io/landing-page/",
+  "homepage": "https://japethnaval.github.io/carasti-page/",
   "type": "module",
   "scripts": {
     "dev": "vite",
