@@ -26,7 +26,7 @@ export const ProfilePage: FC = () => {
       case 'documents':
         return <DocumentsTab />
       default:
-        return <Text>Not yet available</Text>
+        return <Text>Not yet available!</Text>
     }
   }, [activeTab])
 
