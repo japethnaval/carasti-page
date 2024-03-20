@@ -2,6 +2,7 @@
 import { Avatar, Box, Divider, Flex, Text } from '@chakra-ui/react'
 import FileRescan from '@components/file-rescan/file-rescan.component'
 import { AppContext } from '@context/app.context'
+import { startCase } from 'lodash'
 import { FC, Fragment, useContext } from 'react'
 
 export const DocumentsTab: FC = () => {
@@ -96,7 +97,12 @@ export const DocumentsTab: FC = () => {
         >
           <Flex gap="8px" alignItems="center" flex="0 0 210px">
             <Fragment key={item.id}>
-              <Avatar w="36px" h="36px" name={item.name} src={item.imageSrc} />
+              <Avatar
+                w="36px"
+                h="36px"
+                name={startCase(item.name)}
+                src={item.imageSrc}
+              />
               <Flex direction="column">
                 <Text
                   fontSize={{

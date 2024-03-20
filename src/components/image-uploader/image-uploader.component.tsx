@@ -17,7 +17,6 @@ const ImageUploader = () => {
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const fileUploaded = get(event, 'target.files.0')
-    console.log(fileUploaded)
     if (fileUploaded) {
       setSelectedImage(fileUploaded)
     }
@@ -28,12 +27,7 @@ const ImageUploader = () => {
       <Box>
         {selectedImage &&
         String(get(selectedImage, 'type')).includes('image') ? (
-          <Image
-            w="64px"
-            h="64px"
-            alt={get(selectedImage, 'name')}
-            src={URL.createObjectURL(selectedImage)}
-          />
+          <Avatar w="64px" h="64px" src={URL.createObjectURL(selectedImage)} />
         ) : (
           <Box w="64px" h="64px" background="gray" borderRadius="50%" />
         )}
