@@ -6,7 +6,7 @@ import getImageUrl from '@util/get-image-url'
 import { get } from 'lodash'
 import React, { ChangeEventHandler, useContext, useRef } from 'react'
 
-const Rescan = ({
+const FileRescan = ({
   id,
   title,
   subTitle,
@@ -91,7 +91,7 @@ const Rescan = ({
           size="sm"
           colorScheme="gray"
         >
-          Rescan
+          FileRescan
         </Button>
       </Flex>
 
@@ -109,4 +109,4 @@ const Rescan = ({
   )
 }
 
-export default Rescan
+export default FileRescan

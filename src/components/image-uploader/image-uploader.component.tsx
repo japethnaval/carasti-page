@@ -5,7 +5,7 @@ import getImageUrl from '@util/get-image-url'
 import { get } from 'lodash'
 import React, { ChangeEventHandler, useRef, useState } from 'react'
 
-const UploadAndDisplayImage = () => {
+const ImageUploader = () => {
   const hiddenFileInput = useRef<any>(null)
   const [selectedImage, setSelectedImage] = useState(undefined)
 
@@ -17,19 +17,21 @@ const UploadAndDisplayImage = () => {
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const fileUploaded = get(event, 'target.files.0')
+    console.log(fileUploaded)
     if (fileUploaded) {
       setSelectedImage(fileUploaded)
     }
   }
 
   return (
-    <Flex w="fill-available" gap="16px">
+    <Flex w="fill-available" gap="16px" data-testid="imageUploader">
       <Box>
-        {selectedImage && get(selectedImage, 'type') === 'image/jpeg' ? (
-          <Avatar
+        {selectedImage &&
+        String(get(selectedImage, 'type')).includes('image') ? (
+          <Image
             w="64px"
             h="64px"
-            name="User"
+            alt={get(selectedImage, 'name')}
             src={URL.createObjectURL(selectedImage)}
           />
         ) : (
@@ -44,6 +46,7 @@ const UploadAndDisplayImage = () => {
         h="126px"
         cursor="pointer"
         alignItems="center"
+        data-testid="initiator"
         onClick={handleClick}
       >
         <Flex direction="column" alignItems="center" position="relative">
@@ -90,10 +93,11 @@ const UploadAndDisplayImage = () => {
         </Flex>
 
         <input
+          data-testid="fileInput"
           ref={hiddenFileInput}
           type="file"
           name="myImage"
-          accept=".png,.jpg,.jpeg"
+          accept="image/*"
           style={{ display: 'none' }}
           onChange={
             handleChange as unknown as ChangeEventHandler<HTMLInputElement>
@@ -104,4 +108,4 @@ const UploadAndDisplayImage = () => {
   )
 }
 
-export default UploadAndDisplayImage
+export default ImageUploader

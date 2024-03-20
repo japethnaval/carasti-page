@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Avatar, Box, Divider, Flex, Text } from '@chakra-ui/react'
-import Rescan from '@components/image-uploader/image-rescan.component'
+import FileRescan from '@components/file-rescan/file-rescan.component'
 import { AppContext } from '@context/app.context'
 import { FC, Fragment, useContext } from 'react'
 
@@ -96,12 +96,7 @@ export const DocumentsTab: FC = () => {
         >
           <Flex gap="8px" alignItems="center" flex="0 0 210px">
             <Fragment key={item.id}>
-              <Avatar
-                w="36px"
-                h="36px"
-                name="Kola Tioluwani"
-                src={item.imageSrc}
-              />
+              <Avatar w="36px" h="36px" name={item.name} src={item.imageSrc} />
               <Flex direction="column">
                 <Text
                   fontSize={{
@@ -133,7 +128,7 @@ export const DocumentsTab: FC = () => {
             justifyContent="flex-start"
           >
             {item.documents.map((doc) => (
-              <Rescan
+              <FileRescan
                 upload={files.filter((f: any) => f.id === doc.id)[0]}
                 id={doc.id}
                 title={doc.title}
