@@ -1,6 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react/button-has-type */
-import { Avatar, Box, Flex, Image, Text } from '@chakra-ui/react'
+import {
+  Avatar,
+  Box,
+  Flex,
+  Image,
+  Text,
+  useBreakpointValue,
+} from '@chakra-ui/react'
 import getImageUrl from '@util/get-image-url'
 import { get } from 'lodash'
 import React, { ChangeEventHandler, useRef, useState } from 'react'
@@ -8,6 +15,12 @@ import React, { ChangeEventHandler, useRef, useState } from 'react'
 const ImageUploader = () => {
   const hiddenFileInput = useRef<any>(null)
   const [selectedImage, setSelectedImage] = useState(undefined)
+
+  const fontSize = useBreakpointValue({
+    base: 'xs',
+    md: '16px',
+    lg: '16px',
+  })
 
   const handleClick = () => {
     if (hiddenFileInput) {
@@ -23,7 +36,19 @@ const ImageUploader = () => {
   }
 
   return (
-    <Flex w="fill-available" gap="16px" data-testid="imageUploader">
+    <Flex
+      w="fill-available"
+      gap="16px"
+      data-testid="imageUploader"
+      flexDirection={{
+        base: 'column',
+        md: 'row',
+      }}
+      alignItems={{
+        base: 'center',
+        md: 'flex-start',
+      }}
+    >
       <Box>
         {selectedImage &&
         String(get(selectedImage, 'type')).includes('image') ? (
@@ -54,7 +79,7 @@ const ImageUploader = () => {
           <Flex gap="4px">
             <Text
               color="#007BFF"
-              fontSize="14px"
+              fontSize={fontSize}
               fontWeight={600}
               lineHeight="20px"
             >
@@ -62,7 +87,7 @@ const ImageUploader = () => {
             </Text>
             <Text
               color="#475467"
-              fontSize="14px"
+              fontSize={fontSize}
               fontWeight={400}
               lineHeight="20px"
             >
@@ -71,7 +96,7 @@ const ImageUploader = () => {
           </Flex>
           <Text
             color="#475467"
-            fontSize="14px"
+            fontSize={fontSize}
             fontWeight={400}
             lineHeight="20px"
           >

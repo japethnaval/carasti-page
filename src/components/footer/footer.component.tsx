@@ -57,6 +57,10 @@ export const Footer: FC = () => {
           direction="column"
           marginLeft="auto"
           gap={{ base: '4px', md: '16px' }}
+          justifyContent={{
+            base: 'flex-end',
+            md: 'flex-start',
+          }}
         >
           <Image objectFit="contain" src={getImageUrl('carasti-logo.svg')} />
           <Image
@@ -101,7 +105,14 @@ export const Footer: FC = () => {
           h="20px"
           src={getImageUrl('socials/tiktok-logo.svg')}
         />
-        <Text color="#667085" fontWeight={400} fontSize="16px">
+        <Text
+          color="#667085"
+          fontWeight={400}
+          fontSize={{
+            base: '7px',
+            md: '16px',
+          }}
+        >
           © 2023 Carasti Holding LTD.
         </Text>
       </Flex>

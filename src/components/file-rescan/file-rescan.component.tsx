@@ -39,7 +39,12 @@ const FileRescan = ({
   }
 
   return (
-    <Box w="367px">
+    <Box
+      w={{
+        base: 'fit-content',
+        md: '367px',
+      }}
+    >
       <Flex
         key={id}
         background="#F7F8F9"
@@ -91,7 +96,7 @@ const FileRescan = ({
           size="sm"
           colorScheme="gray"
         >
-          FileRescan
+          Rescan
         </Button>
       </Flex>
 

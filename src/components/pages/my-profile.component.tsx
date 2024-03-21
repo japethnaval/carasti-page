@@ -52,10 +52,12 @@ export const ProfilePage: FC = () => {
         border="1px solid #EAECF0"
         borderRadius="8px"
         marginBottom="32px"
+        flexFlow="row wrap"
       >
         {navigationButtons.map((key) => (
           <Button
             h="36px"
+            flex="1 1 170px"
             aria-selected={activeTab === key}
             onClick={() => setactiveTab(key as TabTypes)}
             background="inherit"

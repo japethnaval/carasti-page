@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Avatar, Box, Divider, Flex, Text } from '@chakra-ui/react'
+import { Avatar, Box, Divider, Flex, SimpleGrid, Text } from '@chakra-ui/react'
 import FileRescan from '@components/file-rescan/file-rescan.component'
 import { AppContext } from '@context/app.context'
 import { startCase } from 'lodash'
@@ -87,13 +87,78 @@ export const DocumentsTab: FC = () => {
         </Text>
       </Flex>
       <Divider borderColor="#EAECF0" orientation="horizontal" />
-      {people.map((item) => (
+      <SimpleGrid
+        paddingBlock="32px"
+        gridTemplateColumns={{
+          base: 'min-content',
+          md: '220px auto',
+        }}
+        columns={{
+          base: 1,
+          md: 2,
+        }}
+        overflow="auto"
+        spacing="16px"
+      >
+        <>
+          {people.map((item) => (
+            <>
+              <Box key={item.id} display="flex" gap="8px">
+                <Avatar
+                  w="36px"
+                  h="36px"
+                  name={startCase(item.name)}
+                  src={item.imageSrc}
+                />
+                <Flex direction="column">
+                  <Text
+                    fontSize={{
+                      md: '14px',
+                    }}
+                    fontWeight={500}
+                    color="#344054"
+                  >
+                    {item.name}
+                  </Text>
+                  <Text
+                    fontSize={{
+                      md: '14px',
+                    }}
+                    fontWeight={300}
+                    color="#344054"
+                  >
+                    {item.jobTitle}
+                  </Text>
+                </Flex>
+              </Box>
+              <Flex
+                direction="column"
+                gap="16px"
+                flexFlow="row wrap"
+                justifyContent="flex-start"
+              >
+                {item.documents.map((doc) => (
+                  <FileRescan
+                    upload={files.filter((f: any) => f.id === doc.id)[0]}
+                    id={doc.id}
+                    title={doc.title}
+                    subTitle={doc.subTitle}
+                  />
+                ))}
+              </Flex>
+            </>
+          ))}
+        </>
+      </SimpleGrid>
+      {/* {people.map((item) => (
         <Flex
           key={item.id}
           direction="row"
           gap="16px"
           alignItems="flex-start"
           paddingBlock="32px"
+          flexFlow="row wrap"
+          justifyContent="flex-start"
         >
           <Flex gap="8px" alignItems="center" flex="0 0 210px">
             <Fragment key={item.id}>
@@ -143,7 +208,7 @@ export const DocumentsTab: FC = () => {
             ))}
           </Flex>
         </Flex>
-      ))}
+      ))} */}
     </Box>
   )
 }

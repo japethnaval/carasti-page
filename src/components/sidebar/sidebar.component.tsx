@@ -1,4 +1,4 @@
-import { Avatar, Button, Flex, Image, Text } from '@chakra-ui/react'
+import { Avatar, Button, Flex, Hide, Image, Text } from '@chakra-ui/react'
 import getImageUrl from '@util/get-image-url'
 import { startCase } from 'lodash'
 import { FC } from 'react'
@@ -13,12 +13,7 @@ export const Sidebar: FC = () => {
   ]
 
   return (
-    <Flex
-      background="white"
-      direction="column"
-      justifyContent="space-between"
-      h="fill-available"
-    >
+    <Flex direction="column" justifyContent="space-between" h="100%">
       <Flex direction="column">
         {buttons.map((src) => (
           <Button
@@ -54,36 +49,44 @@ export const Sidebar: FC = () => {
           </Button>
         ))}
       </Flex>
-      <Flex alignItems="center" gap="16px" justifyContent="center">
-        <Avatar
-          w="40px"
-          h="40px"
-          name="Megan Smith"
-          src="https://bit.ly/tioluwani-kolawole"
-        />
-        <Flex direction="column">
-          <Text
-            fontSize={{
-              base: '8px',
-              md: '14px',
-            }}
-            fontWeight={500}
-            color="#344054"
-          >
-            Megan Smith
-          </Text>
-          <Text
-            fontSize={{
-              base: '8px',
-              md: '14px',
-            }}
-            fontWeight={300}
-            color="#344054"
-          >
-            megan@info.com
-          </Text>
+      <Hide below="sm">
+        <Flex
+          alignItems="center"
+          gap="16px"
+          justifyContent="center"
+          borderTop="1px solid #EAECF0"
+          paddingTop="16px"
+        >
+          <Avatar
+            w="40px"
+            h="40px"
+            name="Megan Smith"
+            src="https://bit.ly/tioluwani-kolawole"
+          />
+
+          <Flex direction="column">
+            <Text
+              fontSize={{
+                md: '14px',
+              }}
+              fontWeight={500}
+              color="#344054"
+            >
+              Megan Smith
+            </Text>
+            <Text
+              fontSize={{
+                md: '14px',
+              }}
+              fontWeight={300}
+              color="#344054"
+            >
+              megan@info.com
+            </Text>
+          </Flex>
+          <Image objectFit="contain" src={getImageUrl('logout-icon.svg')} />
         </Flex>
-      </Flex>
+      </Hide>
     </Flex>
   )
 }
