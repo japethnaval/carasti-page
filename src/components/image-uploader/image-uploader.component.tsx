@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-syntax */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react/button-has-type */
 import {
@@ -10,11 +11,19 @@ import {
 } from '@chakra-ui/react'
 import getImageUrl from '@util/get-image-url'
 import { get } from 'lodash'
-import React, { ChangeEventHandler, useRef, useState } from 'react'
+import {
+  ChangeEvent,
+  ChangeEventHandler,
+  DragEvent,
+  useRef,
+  useState,
+} from 'react'
 
 const ImageUploader = () => {
   const hiddenFileInput = useRef<any>(null)
-  const [selectedImage, setSelectedImage] = useState(undefined)
+  const [selectedImage, setSelectedImage] = useState<File | undefined>(
+    undefined,
+  )
 
   const fontSize = useBreakpointValue({
     base: 'xs',
@@ -28,11 +37,23 @@ const ImageUploader = () => {
     }
   }
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const fileUploaded = get(event, 'target.files.0')
     if (fileUploaded) {
       setSelectedImage(fileUploaded)
     }
+  }
+
+  const overrideEventDefaults = (event: DragEvent<HTMLElement>) => {
+    event.preventDefault()
+    event.stopPropagation()
+  }
+  const handleDragAndDropFiles = (event: DragEvent<HTMLElement>) => {
+    overrideEventDefaults(event)
+    if (!event.dataTransfer) return
+
+    const { files } = event.dataTransfer
+    setSelectedImage(get(files, 0) as unknown as File)
   }
 
   return (
@@ -67,6 +88,10 @@ const ImageUploader = () => {
         alignItems="center"
         data-testid="initiator"
         onClick={handleClick}
+        onDrop={handleDragAndDropFiles}
+        onDragEnter={overrideEventDefaults}
+        onDragLeave={overrideEventDefaults}
+        onDragOver={overrideEventDefaults}
       >
         <Flex direction="column" alignItems="center" position="relative">
           <Image
