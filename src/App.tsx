@@ -1,4 +1,4 @@
-import { Box, Flex, SimpleGrid } from '@chakra-ui/react'
+import { Box, SimpleGrid } from '@chakra-ui/react'
 import Footer from '@components/footer/footer.component'
 import NavBar from '@components/navbar/navbar.component'
 import ProfilePage from '@components/pages/my-profile.component'
