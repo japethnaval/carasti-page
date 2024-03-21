@@ -1,12 +1,4 @@
-import {
-  Box,
-  Button,
-  Divider,
-  Flex,
-  Input,
-  SimpleGrid,
-  Text,
-} from '@chakra-ui/react'
+import { Box, Button, Divider, Flex, Input, Text } from '@chakra-ui/react'
 import UploadAndDisplayImage from '@components/image-uploader/image-uploader.component'
 import { FC } from 'react'
 

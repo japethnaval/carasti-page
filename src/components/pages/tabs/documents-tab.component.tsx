@@ -3,7 +3,7 @@ import { Avatar, Box, Divider, Flex, SimpleGrid, Text } from '@chakra-ui/react'
 import FileRescan from '@components/file-rescan/file-rescan.component'
 import { AppContext } from '@context/app.context'
 import { startCase } from 'lodash'
-import { FC, Fragment, useContext } from 'react'
+import { FC, useContext } from 'react'
 
 export const DocumentsTab: FC = () => {
   const { files } = useContext(AppContext)
