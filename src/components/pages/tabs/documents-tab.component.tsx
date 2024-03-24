@@ -1,4 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import AvatarIcon from '@assets/Avatar.jpg'
+import AvatarPlaceholder from '@assets/Avatar-Placeholder-1.png'
 import { Avatar, Box, Divider, Flex, SimpleGrid, Text } from '@chakra-ui/react'
 import FileRescan from '@components/file-rescan/file-rescan.component'
 import { AppContext } from '@context/app.context'
@@ -12,7 +14,7 @@ export const DocumentsTab: FC = () => {
       id: 'person_1',
       name: 'Megan Smith',
       jobTitle: 'Megan Murphy',
-      imageSrc: 'https://bit.ly/tioluwani-kolawole',
+      imageSrc: AvatarIcon,
       documents: [
         {
           id: '1a',
@@ -40,7 +42,7 @@ export const DocumentsTab: FC = () => {
       id: 'person_2',
       name: 'Megan Smith2',
       jobTitle: 'Megan Murphy2',
-      imageSrc: 'https://bit.ly/tioluwani-kolawole',
+      imageSrc: AvatarPlaceholder,
       documents: [
         {
           id: '1b',

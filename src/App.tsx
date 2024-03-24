@@ -13,7 +13,7 @@ const App = () => (
         md: 'fill-available',
       }}
       padding={{
-        base: '32px',
+        base: '16px',
         md: '32px 16px',
       }}
       columns={{
@@ -29,7 +29,14 @@ const App = () => (
       <Box background="white">
         <Sidebar />
       </Box>
-      <Box height="fill-available" background="white" padding="32px">
+      <Box
+        height="fill-available"
+        background="white"
+        padding={{
+          base: '16px',
+          md: '32px',
+        }}
+      >
         <ProfilePage />
       </Box>
     </SimpleGrid>

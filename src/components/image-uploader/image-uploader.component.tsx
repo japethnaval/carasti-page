@@ -1,6 +1,7 @@
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react/button-has-type */
+import AvatarIcon from '@assets/Avatar.jpg'
 import {
   Avatar,
   Box,
@@ -75,7 +76,7 @@ const ImageUploader = () => {
         String(get(selectedImage, 'type')).includes('image') ? (
           <Avatar w="64px" h="64px" src={URL.createObjectURL(selectedImage)} />
         ) : (
-          <Box w="64px" h="64px" background="gray" borderRadius="50%" />
+          <Avatar w="64px" h="64px" src={AvatarIcon} />
         )}
       </Box>
       <Box

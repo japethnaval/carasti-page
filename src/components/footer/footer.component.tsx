@@ -21,11 +21,12 @@ export const Footer: FC = () => {
     <Box background="white">
       <Flex
         padding={{
-          base: '64px',
+          base: '32px',
+          md: '64px',
         }}
       >
         <SimpleGrid
-          columns={{ base: 2, md: 3 }}
+          columns={{ base: 1, md: 3 }}
           paddingBlock={{
             base: '16px',
           }}
@@ -56,7 +57,7 @@ export const Footer: FC = () => {
         <Flex
           direction="column"
           marginLeft="auto"
-          gap={{ base: '4px', md: '16px' }}
+          gap={{ base: '32px', md: '16px' }}
           justifyContent={{
             base: 'flex-end',
             md: 'flex-start',
@@ -78,8 +79,15 @@ export const Footer: FC = () => {
       <Flex
         gap="16px"
         alignItems="center"
+        justifyContent={{
+          base: 'center',
+          md: 'flex-start',
+        }}
         paddingBlock="32px"
-        paddingInline="64px"
+        paddingInline={{
+          base: '16px',
+          md: '64px',
+        }}
       >
         <Image
           objectFit="contain"
@@ -109,7 +117,7 @@ export const Footer: FC = () => {
           color="#667085"
           fontWeight={400}
           fontSize={{
-            base: '7px',
+            base: '12px',
             md: '16px',
           }}
         >

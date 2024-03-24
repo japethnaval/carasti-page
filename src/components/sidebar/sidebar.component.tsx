@@ -1,3 +1,4 @@
+import AvatarIcon from '@assets/Avatar.jpg'
 import { Avatar, Button, Flex, Hide, Image, Text } from '@chakra-ui/react'
 import getImageUrl from '@util/get-image-url'
 import { startCase } from 'lodash'
@@ -55,14 +56,9 @@ export const Sidebar: FC = () => {
           gap="16px"
           justifyContent="center"
           borderTop="1px solid #EAECF0"
-          paddingTop="16px"
+          padding="16px"
         >
-          <Avatar
-            w="40px"
-            h="40px"
-            name="Megan Smith"
-            src="https://bit.ly/tioluwani-kolawole"
-          />
+          <Avatar w="40px" h="40px" name="Megan Smith" src={AvatarIcon} />
 
           <Flex direction="column">
             <Text
