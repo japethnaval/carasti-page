@@ -41,7 +41,7 @@ const FileRescan = ({
   return (
     <Box
       w={{
-        base: '320px',
+        base: '283px',
         md: '367px',
       }}
     >
